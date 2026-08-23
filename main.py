@@ -219,7 +219,7 @@ async def TORIKUL_SEnd_RoOm_MsG(room_id: int, message: str, bot_uid: int, key: b
     except Exception:
         return None
 
-async def Mahir_Room_Site_Change(room_id, bot_id, side, slot, key, iv):
+async def Torikul_Room_Site_Change(room_id, bot_id, side, slot, key, iv):
     try:
         fields = {
             1: 20,
@@ -239,7 +239,7 @@ async def Mahir_Room_Site_Change(room_id, bot_id, side, slot, key, iv):
     except Exception:
         return None
 
-async def Mahir_Room_START(room_id, key, iv):
+async def Torikul_Room_START(room_id, key, iv):
     try:
         fields = {
             1: 11,
@@ -255,7 +255,7 @@ async def Mahir_Room_START(room_id, key, iv):
     except Exception:
         return None
 
-async def Mahir_Room_ExiT(bot_uid, key, iv):
+async def Torikul_Room_ExiT(bot_uid, key, iv):
     try:
         fields = {
             1: 6, 
@@ -472,11 +472,11 @@ class FreeFireBot:
                     7: 1,
                     8: share_json, 
                     9: { 
-                        1: "[B][C][00FFFF]➥Ƭᴏʀɪᴋᴜʟ ᏰOᎿ SYSTEM", 
+                        1: "[B][C][00FFFF]Ƭᴏʀɪᴋᴜʟ ᏰOᎿ SYSTEM", 
                         2: xBunnEr(), 
                         4: 330,
                         5: 801046518,
-                        8: "➥Ƭᴏʀɪᴋᴜʟ TEAM",
+                        8: "Ƭᴏʀɪᴋᴜʟ TEAM",
                         10: 1,
                         14: {
                             1: 1158053040,
@@ -525,10 +525,10 @@ class FreeFireBot:
                 f"[C][FFFF00] Type [00FF00]/store [FFFF00]to view items\n"
                 f"[C][FFFF00] Type [00FF00]/app [FFFF00]for Android App\n"
                 f"[C][FFD700]────────────────\n"
-                f"[C][00BFFF]📢 Telegram : [FFFFFF]@torikul_1999\n"
-                f"[C][FF69B4]🎬 TikTok   : [FFFFFF]@torikul_1999\n"
+                f"[C][00BFFF]📢 Telegram : [FFFFFF]@torikul__1999\n"
+                f"[C][FF69B4]🎬 TikTok   : [FFFFFF]@toeikul_1999\n"
                 f"[C][00FF00]🛠️ Follow My Craftland Id\n"
-                f"[C][00FF7F]🛠️ MY UID [FFFF00]17😃518😃80😃026\n"
+                f"[C][00FF7F]🛠️ MY UID [FFFF00]175😲188😲00😲26\n"
                 f"[C][FFD700]❖━━━━━━━━━━━━━━━❖"
             )
             msg_pkt = await TORIKUL_SEnd_RoOm_MsG(room_id, welcome_msg, self.bot_uid, self.key, self.iv)
@@ -597,7 +597,7 @@ class FreeFireBot:
                 update_bot_info(self.uid, status="✅ Online", room_active=True)
                 
                 selected_color = get_random_color()
-                room_name = f"[B]{selected_color}➥Ƭᴏʀɪᴋᴜʟ"
+                room_name = f"[B]{selected_color}Ƭᴏʀɪᴋᴜʟ"
                 room_func, mode_name = self.get_room_mode()
                 room_pkt = room_func(room_name, self.key, self.iv)
                 writer.write(room_pkt)
@@ -651,7 +651,7 @@ class FreeFireBot:
                                             
                                             # প্রথমে সাইড চেঞ্জ (Side 2)
                                             if not self.is_in_side2 and self.current_room_id:
-                                                move_pkt = await Mahir_Room_Site_Change(self.current_room_id, self.bot_uid, 2, 1, self.key, self.iv)
+                                                move_pkt = await Torikul_Room_Site_Change(self.current_room_id, self.bot_uid, 2, 1, self.key, self.iv)
                                                 if move_pkt:
                                                     self.online_writer.write(move_pkt)
                                                     await self.online_writer.drain()
@@ -669,7 +669,7 @@ class FreeFireBot:
                                         self.room_members.clear() 
                                         if self.is_in_side2 and self.current_room_id:
                                             await asyncio.sleep(0.3)
-                                            back_pkt = await Mahir_Room_Site_Change(self.current_room_id, self.bot_uid, 1, 1, self.key, self.iv)
+                                            back_pkt = await Torikul_Room_Site_Change(self.current_room_id, self.bot_uid, 1, 1, self.key, self.iv)
                                             if back_pkt:
                                                 self.online_writer.write(back_pkt)
                                                 await self.online_writer.drain()
@@ -681,12 +681,12 @@ class FreeFireBot:
                                         is_full = f5.get('1', {}).get('data')
                                         if is_full == 1 and self.current_room_id:
                                             console.print(f"[bold cyan][{self.uid}][/bold cyan] [bold red]Room Full! Starting Match...[/bold red]")
-                                            start_pkt = await Mahir_Room_START(self.current_room_id, self.key, self.iv)
+                                            start_pkt = await Torikul_Room_START(self.current_room_id, self.key, self.iv)
                                             if start_pkt:
                                                 self.online_writer.write(start_pkt)
                                                 await self.online_writer.drain()
                                                 await asyncio.sleep(1.0)
-                                                exit_pkt = await Mahir_Room_ExiT(self.bot_uid, self.key, self.iv)
+                                                exit_pkt = await Torikul_Room_ExiT(self.bot_uid, self.key, self.iv)
                                                 if exit_pkt:
                                                     self.online_writer.write(exit_pkt)
                                                     await self.online_writer.drain()
@@ -739,7 +739,7 @@ class FreeFireBot:
                                             "[C][FFD700]────────────────\n"
                                             "[C][00FF00]🤖 TCP BOT Price : [FFFF00]500 BDT\n"
                                             "[C][00FF00]🌐 Website       : [FFFF00]mahir🫡.xo🫡.🫡je\n"
-                                            "[C][00FF00]👤 Owner Telegram : [FFFF00]@TORIKUL0208\n"
+                                            "[C][00FF00]👤 Owner Telegram : [FFFF00]@toeikul_1999\n"
                                             "[C][00FF00]🛠️ FOLLOW MY Craftland ID \n"
                                             "[C][FFD700]❖━━━━━━━━━━━━━━━❖"
                                         )
