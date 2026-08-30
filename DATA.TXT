@@ -1,0 +1,781 @@
+ [DETECTION] NEW PACKET DETECTED (Header: 0e00000361)
+{
+  "1": {
+    "wire_type": "varint",
+    "data": 13512402613
+  },
+  "2": {
+    "wire_type": "varint",
+    "data": 14
+  },
+  "4": {
+    "wire_type": "varint",
+    "data": 5
+  },
+  "5": {
+    "wire_type": "length_delimited",
+    "data": {
+      "1": {
+        "wire_type": "length_delimited",
+        "data": {
+          "1": {
+            "wire_type": "varint",
+            "data": 13512402613
+          },
+          "2": {
+            "wire_type": "varint",
+            "data": 1120167200
+          },
+          "3": {
+            "wire_type": "string",
+            "data": "ᎷAH!Ꮢㅤ⁞ㅤᏕ!Ꮢ"
+          },
+          "5": {
+            "wire_type": "varint",
+            "data": 902000074
+          },
+          "6": {
+            "wire_type": "varint",
+            "data": 1
+          },
+          "7": {
+            "wire_type": "varint",
+            "data": 901000261
+          },
+          "9": {
+            "wire_type": "length_delimited",
+            "data": {
+              "0": {
+                "wire_type": "fixed64"
+              },
+              "4": {
+                "wire_type": "varint",
+                "data": 39
+              }
+            }
+          },
+          "10": {
+            "wire_type": "varint",
+            "data": 910050001
+          },
+          "11": {
+            "wire_type": "varint",
+            "data": 2
+          },
+          "12": {
+            "wire_type": "varint",
+            "data": 323
+          },
+          "13": {
+            "wire_type": "varint",
+            "data": 4766
+          },
+          "14": {
+            "wire_type": "varint",
+            "data": 321
+          },
+          "15": {
+            "wire_type": "varint",
+            "data": 105
+          },
+          "16": {
+            "wire_type": "varint",
+            "data": 2087776907697373185
+          },
+          "22": {
+            "wire_type": "length_delimited",
+            "data": {
+              "2": {
+                "wire_type": "varint",
+                "data": 1
+              },
+              "3": {
+                "wire_type": "varint",
+                "data": 1
+              }
+            }
+          },
+          "23": {
+            "wire_type": "string",
+            "data": ""
+          },
+          "24": {
+            "wire_type": "string",
+            "data": "BD"
+          },
+          "25": {
+            "wire_type": "length_delimited",
+            "data": {}
+          },
+          "26": {
+            "wire_type": "length_delimited",
+            "data": {}
+          },
+          "27": {
+            "wire_type": "length_delimited",
+            "data": {}
+          },
+          "29": {
+            "wire_type": "string",
+            "data": ""
+          },
+          "31": {
+            "wire_type": "length_delimited",
+            "data": {
+              "1": {
+                "wire_type": "varint",
+                "data": 1120167200
+              },
+              "2": {
+                "wire_type": "varint",
+                "data": 6
+              },
+              "3": {
+                "wire_type": "length_delimited",
+                "data": {}
+              },
+              "4": {
+                "wire_type": "varint",
+                "data": 175
+              },
+              "5": {
+                "wire_type": "varint",
+                "data": 2290
+              },
+              "6": {
+                "wire_type": "varint",
+                "data": 93400
+              }
+            }
+          },
+          "32": {
+            "wire_type": "length_delimited",
+            "data": {
+              "1": {
+                "wire_type": "varint",
+                "data": 21
+              }
+            }
+          },
+          "35": {
+            "wire_type": "varint",
+            "data": 1328
+          },
+          "36": {
+            "wire_type": "varint",
+            "data": 1
+          },
+          "41": {
+            "wire_type": "length_delimited",
+            "data": {}
+          },
+          "42": {
+            "wire_type": "varint",
+            "data": 1300000001
+          }
+        }
+      },
+      "2": {
+        "wire_type": "length_delimited",
+        "data": {
+          "1": {
+            "wire_type": "varint",
+            "data": 144258771
+          },
+          "2": {
+            "wire_type": "string",
+            "data": "[B][008080]ᎷAH!Ꮢ"
+          },
+          "3": {
+            "wire_type": "varint",
+            "data": 13512402613
+          },
+          "4": {
+            "wire_type": "varint",
+            "data": 11
+          },
+          "5": {
+            "wire_type": "varint",
+            "data": 43
+          },
+          "6": {
+            "wire_type": "varint",
+            "data": 1
+          },
+          "7": {
+            "wire_type": "varint",
+            "data": 4
+          },
+          "8": {
+            "wire_type": "varint",
+            "data": 1
+          },
+          "11": {
+            "wire_type": "length_delimited",
+            "data": {
+              "3": {
+                "wire_type": "string",
+                "data": ""
+              }
+            }
+          },
+          "13": {
+            "wire_type": "varint",
+            "data": 1
+          },
+          "14": {
+            "wire_type": "varint",
+            "data": 1
+          },
+          "15": {
+            "wire_type": "varint",
+            "data": 1
+          },
+          "18": {
+            "wire_type": "varint",
+            "data": 111111111
+          },
+          "27": {
+            "wire_type": "string",
+            "data": ""
+          },
+          "29": {
+            "wire_type": "varint",
+            "data": 1
+          },
+          "30": {
+            "wire_type": "varint",
+            "data": 1
+          },
+          "31": {
+            "wire_type": "varint",
+            "data": 2087776907697373184
+          },
+          "36": {
+            "wire_type": "string",
+            "data": "1786599778471383800_031iggk7xe"
+          },
+          "40": {
+            "wire_type": "string",
+            "data": "1786599778471388220_tacb329mdo"
+          }
+        }
+      }
+    }
+  }
+}
+
+📡 [DETECTION] NEW PACKET DETECTED (Header: 0e0000013c)
+{
+  "1": {
+    "wire_type": "varint",
+    "data": 13512402613
+  },
+  "2": {
+    "wire_type": "varint",
+    "data": 14
+  },
+  "4": {
+    "wire_type": "varint",
+    "data": 25
+  },
+  "5": {
+    "wire_type": "length_delimited",
+    "data": {
+      "1": {
+        "wire_type": "varint",
+        "data": 144258771
+      },
+      "2": {
+        "wire_type": "length_delimited",
+        "data": {
+          "1": {
+            "wire_type": "varint",
+            "data": 13512402613
+          },
+          "2": {
+            "wire_type": "varint",
+            "data": 1120167200
+          },
+          "3": {
+            "wire_type": "string",
+            "data": "ᎷAH!Ꮢㅤ⁞ㅤᏕ!Ꮢ"
+          },
+          "5": {
+            "wire_type": "varint",
+            "data": 902000074
+          },
+          "6": {
+            "wire_type": "varint",
+            "data": 1
+          },
+          "7": {
+            "wire_type": "varint",
+            "data": 901000261
+          },
+          "9": {
+            "wire_type": "length_delimited",
+            "data": {
+              "0": {
+                "wire_type": "fixed64"
+              },
+              "4": {
+                "wire_type": "varint",
+                "data": 39
+              }
+            }
+          },
+          "10": {
+            "wire_type": "varint",
+            "data": 910050001
+          },
+          "11": {
+            "wire_type": "varint",
+            "data": 2
+          },
+          "12": {
+            "wire_type": "varint",
+            "data": 323
+          },
+          "13": {
+            "wire_type": "varint",
+            "data": 4766
+          },
+          "14": {
+            "wire_type": "varint",
+            "data": 321
+          },
+          "15": {
+            "wire_type": "varint",
+            "data": 105
+          },
+          "16": {
+            "wire_type": "varint",
+            "data": 2087776907697373185
+          },
+          "22": {
+            "wire_type": "length_delimited",
+            "data": {
+              "2": {
+                "wire_type": "varint",
+                "data": 1
+              },
+              "3": {
+                "wire_type": "varint",
+                "data": 1
+              }
+            }
+          },
+          "23": {
+            "wire_type": "string",
+            "data": ""
+          },
+          "24": {
+            "wire_type": "string",
+            "data": "BD"
+          },
+          "25": {
+            "wire_type": "length_delimited",
+            "data": {}
+          },
+          "26": {
+            "wire_type": "length_delimited",
+            "data": {}
+          },
+          "27": {
+            "wire_type": "length_delimited",
+            "data": {}
+          },
+          "29": {
+            "wire_type": "string",
+            "data": ""
+          },
+          "31": {
+            "wire_type": "length_delimited",
+            "data": {
+              "1": {
+                "wire_type": "varint",
+                "data": 1120167200
+              },
+              "2": {
+                "wire_type": "varint",
+                "data": 6
+              },
+              "3": {
+                "wire_type": "length_delimited",
+                "data": {}
+              },
+              "4": {
+                "wire_type": "varint",
+                "data": 175
+              },
+              "5": {
+                "wire_type": "varint",
+                "data": 2290
+              },
+              "6": {
+                "wire_type": "varint",
+                "data": 93400
+              }
+            }
+          },
+          "32": {
+            "wire_type": "length_delimited",
+            "data": {
+              "1": {
+                "wire_type": "varint",
+                "data": 21
+              }
+            }
+          },
+          "35": {
+            "wire_type": "varint",
+            "data": 1328
+          },
+          "36": {
+            "wire_type": "varint",
+            "data": 1
+          },
+          "41": {
+            "wire_type": "length_delimited",
+            "data": {}
+          },
+          "42": {
+            "wire_type": "varint",
+            "data": 1300000001
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+join data
+
+
+
+
+📡 [DETECTION] NEW PACKET DETECTED (Header: 0e0000000e)
+{
+  "1": {
+    "wire_type": "varint",
+    "data": 13512402613
+  },
+  "2": {
+    "wire_type": "varint",
+    "data": 14
+  },
+  "4": {
+    "wire_type": "varint",
+    "data": 65
+  },
+  "5": {
+    "wire_type": "length_delimited",
+    "data": {
+      "1": {
+        "wire_type": "varint",
+        "data": 1
+      }
+    }
+  }
+}
+
+📡 [DETECTION] NEW PACKET DETECTED (Header: 0e0000000e)
+{
+  "1": {
+    "wire_type": "varint",
+    "data": 13512402613
+  },
+  "2": {
+    "wire_type": "varint",
+    "data": 14
+  },
+  "4": {
+    "wire_type": "varint",
+    "data": 65
+  },
+  "5": {
+    "wire_type": "length_delimited",
+    "data": {
+      "1": {
+        "wire_type": "varint",
+        "data": 1
+      }
+    }
+  }
+  
+  
+  
+room full
+
+
+📡 [DETECTION] NEW PACKET DETECTED (Header: 0e00000238)
+{
+  "1": {
+    "wire_type": "varint",
+    "data": 13512402613
+  },
+  "2": {
+    "wire_type": "varint",
+    "data": 14
+  },
+  "4": {
+    "wire_type": "varint",
+    "data": 7
+  },
+  "5": {
+    "wire_type": "length_delimited",
+    "data": {
+      "2": {
+        "wire_type": "length_delimited",
+        "data": {
+          "1": {
+            "wire_type": "varint",
+            "data": 144258771
+          },
+          "2": {
+            "wire_type": "string",
+            "data": "[B][008080]ᎷAH!Ꮢ"
+          },
+          "3": {
+            "wire_type": "varint",
+            "data": 13512402613
+          },
+          "4": {
+            "wire_type": "varint",
+            "data": 11
+          },
+          "5": {
+            "wire_type": "varint",
+            "data": 43
+          },
+          "6": {
+            "wire_type": "varint",
+            "data": 1
+          },
+          "7": {
+            "wire_type": "varint",
+            "data": 4
+          },
+          "8": {
+            "wire_type": "varint",
+            "data": 1
+          },
+          "11": {
+            "wire_type": "length_delimited",
+            "data": {
+              "3": {
+                "wire_type": "string",
+                "data": ""
+              }
+            }
+          },
+          "13": {
+            "wire_type": "varint",
+            "data": 1
+          },
+          "14": {
+            "wire_type": "varint",
+            "data": 1
+          },
+          "15": {
+            "wire_type": "varint",
+            "data": 1
+          },
+          "18": {
+            "wire_type": "varint",
+            "data": 111111111
+          },
+          "27": {
+            "wire_type": "string",
+            "data": ""
+          },
+          "29": {
+            "wire_type": "varint",
+            "data": 1
+          },
+          "30": {
+            "wire_type": "varint",
+            "data": 1
+          },
+          "31": {
+            "wire_type": "varint",
+            "data": 2087776907697373184
+          },
+          "36": {
+            "wire_type": "string",
+            "data": "1786599778471383800_031iggk7xe"
+          },
+          "40": {
+            "wire_type": "string",
+            "data": "1786599778471388220_tacb329mdo"
+          }
+        }
+      },
+      "3": {
+        "wire_type": "length_delimited",
+        "data": {
+          "1": {
+            "wire_type": "varint",
+            "data": 13512402613
+          },
+          "2": {
+            "wire_type": "varint",
+            "data": 1120167200
+          },
+          "3": {
+            "wire_type": "string",
+            "data": "ᎷAH!Ꮢㅤ⁞ㅤᏕ!Ꮢ"
+          },
+          "5": {
+            "wire_type": "varint",
+            "data": 902000074
+          },
+          "6": {
+            "wire_type": "varint",
+            "data": 1
+          },
+          "7": {
+            "wire_type": "varint",
+            "data": 901000261
+          },
+          "9": {
+            "wire_type": "length_delimited",
+            "data": {
+              "0": {
+                "wire_type": "fixed64"
+              },
+              "4": {
+                "wire_type": "varint",
+                "data": 39
+              }
+            }
+          },
+          "10": {
+            "wire_type": "varint",
+            "data": 910050001
+          },
+          "11": {
+            "wire_type": "varint",
+            "data": 2
+          },
+          "12": {
+            "wire_type": "varint",
+            "data": 323
+          },
+          "13": {
+            "wire_type": "varint",
+            "data": 4766
+          },
+          "14": {
+            "wire_type": "varint",
+            "data": 321
+          },
+          "15": {
+            "wire_type": "varint",
+            "data": 105
+          },
+          "16": {
+            "wire_type": "varint",
+            "data": 2087776907697373185
+          },
+          "22": {
+            "wire_type": "length_delimited",
+            "data": {
+              "2": {
+                "wire_type": "varint",
+                "data": 1
+              },
+              "3": {
+                "wire_type": "varint",
+                "data": 1
+              }
+            }
+          },
+          "23": {
+            "wire_type": "string",
+            "data": ""
+          },
+          "24": {
+            "wire_type": "string",
+            "data": "BD"
+          },
+          "25": {
+            "wire_type": "length_delimited",
+            "data": {}
+          },
+          "26": {
+            "wire_type": "length_delimited",
+            "data": {}
+          },
+          "27": {
+            "wire_type": "length_delimited",
+            "data": {}
+          },
+          "29": {
+            "wire_type": "string",
+            "data": ""
+          },
+          "31": {
+            "wire_type": "length_delimited",
+            "data": {
+              "1": {
+                "wire_type": "varint",
+                "data": 1120167200
+              },
+              "2": {
+                "wire_type": "varint",
+                "data": 6
+              },
+              "3": {
+                "wire_type": "length_delimited",
+                "data": {}
+              },
+              "4": {
+                "wire_type": "varint",
+                "data": 175
+              },
+              "5": {
+                "wire_type": "varint",
+                "data": 2290
+              },
+              "6": {
+                "wire_type": "varint",
+                "data": 93400
+              }
+            }
+          },
+          "32": {
+            "wire_type": "length_delimited",
+            "data": {
+              "1": {
+                "wire_type": "varint",
+                "data": 21
+              }
+            }
+          },
+          "35": {
+            "wire_type": "varint",
+            "data": 1328
+          },
+          "36": {
+            "wire_type": "varint",
+            "data": 1
+          },
+          "41": {
+            "wire_type": "length_delimited",
+            "data": {}
+          },
+          "42": {
+            "wire_type": "varint",
+            "data": 1300000001
+          }
+        }
+      }
+    }
+  }
+  
+  
+  room থেকে বেরিয়ে গিয়েছে 
