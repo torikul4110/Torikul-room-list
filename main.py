@@ -28,13 +28,68 @@ from rich.console import Console
 from rich.panel import Panel
 from rich.align import Align
 from cfonts import render
-from M4H1R import *
+
+# M4H1R মডিউলটি নেই, তাই নিজে ফাংশন তৈরি করছি
+# from M4H1R import *  # এই লাইনটি কমেন্ট করা হলো
 
 from protobuf_decoder.protobuf_decoder import Parser
 
 from Pb2 import MajoRLoGinrEs_pb2, PorTs_pb2, MajoRLoGinrEq_pb2
 
 console = Console()
+
+# ========== M4H1R এর ফাংশনগুলি নিজে তৈরি করা হলো ==========
+async def Roomlw(room_name, key, iv):
+    """LW মোডের রুম তৈরি"""
+    try:
+        fields = {
+            1: 3,
+            2: {
+                1: room_name,
+                2: 1,
+                3: 2,
+                4: 1,
+            }
+        }
+        proto_bytes = await CrEaTe_ProTo(fields)
+        return await GeneRaTePk(proto_bytes.hex(), '0e15', key, iv)
+    except Exception:
+        return None
+
+async def Room2v2(room_name, key, iv):
+    """2v2 মোডের রুম তৈরি"""
+    try:
+        fields = {
+            1: 3,
+            2: {
+                1: room_name,
+                2: 2,
+                3: 4,
+                4: 1,
+            }
+        }
+        proto_bytes = await CrEaTe_ProTo(fields)
+        return await GeneRaTePk(proto_bytes.hex(), '0e15', key, iv)
+    except Exception:
+        return None
+
+async def Room4v4(room_name, key, iv):
+    """4v4 মোডের রুম তৈরি"""
+    try:
+        fields = {
+            1: 3,
+            2: {
+                1: room_name,
+                2: 3,
+                3: 8,
+                4: 1,
+            }
+        }
+        proto_bytes = await CrEaTe_ProTo(fields)
+        return await GeneRaTePk(proto_bytes.hex(), '0e15', key, iv)
+    except Exception:
+        return None
+# ==========================================================
 
 # ========== GLOBAL TRACKING ==========
 welcome_tracking = {}
@@ -231,7 +286,6 @@ async def Mahir_Room_Site_Change(room_id, bot_id, side, slot, key, iv):
                 6: 1
             }
         }
-        # CrEaTe_ProTo async তাই এখানে await দিতে হবে
         proto_bytes = await CrEaTe_ProTo(fields)
         packet_hex = proto_bytes.hex()
         final_packet = await GeneRaTePk(packet_hex, '0e15', key, iv)
@@ -286,42 +340,29 @@ async def GeNeRaTeAccAccess(uid, password):
 async def EncRypTMajoRLoGin(open_id, access_token):
     major_login = MajoRLoGinrEq_pb2.MajorLogin()
     
-    # বর্তমান সময় অনুযায়ী লগইন টাইম
     major_login.event_time = str(datetime.now())[:-7]
     major_login.game_name = "free fire"
     
-    # --- ফোন প্ল্যাটফর্ম কনফিগারেশন (Infinix X6812 Style) ---
-    major_login.platform_id = 2             # Android
-    major_login.platform_sdk_id = 2         # Android SDK
+    major_login.platform_id = 2
+    major_login.platform_sdk_id = 2
     major_login.device_type = "Handheld"    
     major_login.system_hardware = "MT6769V/CU" 
-    
-    # আপনার পাঠানো অরিজিনাল সিস্টেম সফটওয়্যার স্ট্রিং
     major_login.system_software = "Android OS 11 / API-30 (RP1A.200720.011/230921V810)"
-    
     major_login.client_version = version 
     major_login.client_version_code = "2019120828" 
-    
-    # --- নেটওয়ার্ক সিমুলেশন (WIFI MODE) ---
-    # এখানে মোবাইল ডাটা "Ooredoo" এবং "4G" সরিয়ে "WIFI" সেট করা হয়েছে
-    major_login.telecom_operator = "WIFI"      # মোবাইল অপারেটরের বদলে ওয়াইফাই
-    major_login.network_operator_a = "00000"   # ওয়াইফাই এর জন্য ফিক্সড কোড
-    major_login.network_type = "WIFI"          # মেইন নেটওয়ার্ক টাইপ
-    major_login.network_type_a = "WIFI"        # সাব নেটওয়ার্ক টাইপ
-    
-    # --- স্ক্রিন রেজোলিউশন (Infinix X6812) ---
+    major_login.telecom_operator = "WIFI"
+    major_login.network_operator_a = "00000"
+    major_login.network_type = "WIFI"
+    major_login.network_type_a = "WIFI"
     major_login.screen_width = 750
     major_login.screen_height = 1708
     major_login.screen_dpi = "480"
-    
-    # --- হার্ডওয়্যার ডিটেইলস ---
     major_login.processor_details = "INFINIX MOBILITY LIMITED Infinix X6812"
     major_login.memory = 4096              
     major_login.gpu_renderer = "Mali-G52 MC2"
     major_login.gpu_version = "OpenGL ES 3.2 v1.r26p0-01eac0.f143e3f9482527bbad36b3ec27f93e59"
     major_login.graphics_api = "OpenGLES2" 
     
-    # --- ইউনিক ডিভাইস আইডি ---
     unique_id = str(uuid.uuid4())
     major_login.unique_device_id = f"Google|{unique_id}" 
     
@@ -338,20 +379,18 @@ async def EncRypTMajoRLoGin(open_id, access_token):
     memory_available.version = 55
     memory_available.hidden_value = random.randint(70, 95)
     
-    # --- স্টোরেজ ডাটা ---
     major_login.external_storage_total = 64000 
     major_login.external_storage_available = random.randint(15000, 35000)
     major_login.internal_storage_total = 64000
     major_login.internal_storage_available = random.randint(8000, 25000)
     
-    # --- ফাইল পাথ ও টোকেন (আপনার পাঠানো রিয়েল ডাটা অনুযায়ী) ---
     major_login.library_path = "/data/app/~~mqMSs-fQy3osXuzWqbcWhA==/com.dts.freefireth-39QqNpcW0WwYLUYNf2HuLQ==/lib/arm64"
     major_login.library_token = "4c322aeb56444feaa151d1ea91a8f7f2|/data/app/~~mqMSs-fQy3osXuzWqbcWhA==/com.dts.freefireth-39QqNpcW0WwYLUYNf2HuLQ==/base.apk"
     
     major_login.client_using_version = "7428b253defc164018c604a1ebbfebdf"
     major_login.supported_astc_bitset = 16383
     major_login.analytics_detail = b"FwQVTgUPX1UaUllDDwcWCRBpWAUOUgsvA1snWlBaO1kFYg=="
-    major_login.loading_time = random.randint(3000, 7000) # WIFI তে লোডিং টাইম কম রাখা হয়েছে
+    major_login.loading_time = random.randint(3000, 7000)
     
     major_login.release_channel = "android"
     major_login.if_push = 1
@@ -424,23 +463,17 @@ def load_accounts(file_path="accs.json"):
         console.print(f"[bold red]Error loading accounts: {e}[/bold red]")
         return {}
 
-# ========== DYNAMIC ACCOUNT LOADER (THREAD BASED) ==========
-
-async def run_bot(uid, pwd, index):
-    bot = FreeFireBot(uid=uid, password=pwd, server='bd', index=index)
-    await bot.keep_online_forever()
+# ========== DYNAMIC ACCOUNT LOADER ==========
 
 async def process_single_bot(uid, pwd, index):
     """একটি নির্দিষ্ট বটের জন্য সর্বোচ্চ ২ বার চেষ্টা করবে"""
     for attempt in range(1, 3):
-        # একটি নতুন বট অবজেক্ট তৈরি
         bot = FreeFireBot(uid=uid, password=pwd, index=index)
         bot_task = asyncio.create_task(bot.keep_online_forever())
         
-        # অনলাইন হওয়ার জন্য পর্যাপ্ত সময় অপেক্ষা (৩০ সেকেন্ড)
         wait_time = 0
-        while wait_time < 30: # ৩০ সেকেন্ড পর্যন্ত অপেক্ষা করবে
-            await asyncio.sleep(0.1) # প্রতি ১ সেকেন্ড পর পর চেক করবে
+        while wait_time < 30:
+            await asyncio.sleep(0.1)
             wait_time += 1
             if bot.is_online:
                 console.print(f"[bold green]✅ [Attempt {attempt}] UID {uid} is ONLINE.[/bold green]")
@@ -448,7 +481,6 @@ async def process_single_bot(uid, pwd, index):
                     running_bots.add(uid)
                 return True 
 
-        # ৩০ সেকেন্ডে না হলে টাস্ক বন্ধ করে দিবে
         bot.is_running = False
         bot_task.cancel()
         await asyncio.sleep(0.1) 
@@ -457,7 +489,7 @@ async def process_single_bot(uid, pwd, index):
     return False
 
 async def batch_account_loader():
-    """একসাথে ৫০টি করে অ্যাকাউন্ট প্রসেস করবে"""
+    """একসাথে ১০০টি করে অ্যাকাউন্ট প্রসেস করবে"""
     processed_accounts = set()
     BATCH_SIZE = 100 
 
@@ -477,49 +509,21 @@ async def batch_account_loader():
                 
                 tasks = []
                 for index, (uid, pwd) in enumerate(current_batch):
-                    # ৫০টি আইডি একসাথে স্টার্ট হবে
                     tasks.append(process_single_bot(uid, pwd, i + index))
-                    # আইডিগুলো ছাড়ার মাঝে সামান্য গ্যাপ (০.২ সেকেন্ড) যাতে ক্রাশ না করে
                     await asyncio.sleep(0.2) 
                 
-                # ৫০টি টাস্কের রেজাল্ট আসা পর্যন্ত অপেক্ষা করবে
                 await asyncio.gather(*tasks)
                 
                 for uid, _ in current_batch:
                     processed_accounts.add(uid)
                 
                 console.print(f"[bold blue]📦 Batch finished. Moving to next...[/bold blue]")
-                await asyncio.sleep(0.1) # ব্যাচ শেষে সামান্য রেস্ট
+                await asyncio.sleep(0.1)
 
         except Exception as e:
             console.print(f"[bold red]Batch Loader Error: {e}[/bold red]")
         
         await asyncio.sleep(0.1)
-
-def dynamic_account_loader():
-    """স্বয়ংক্রিয়ভাবে accs.json ফাইল স্ক্যান করে নতুন অ্যাকাউন্ট রান করাবে"""
-    while True:
-        try:
-            accounts = load_accounts()
-            with running_bots_lock:
-                for index, (uid, pwd) in enumerate(accounts.items()):
-                    if uid not in running_bots:
-                        running_bots.add(uid)
-                        # log_terminal এর বদলে console.print ব্যবহার করা হয়েছে
-                        console.print(f"[bold green]✨ New Account Detected! Launching Guest UID: {uid}[/bold green]")
-                        
-                        # এখানে FF_CLient এর বদলে একটি থ্রেড ফাংশন তৈরি করে কল করা হয়েছে
-                        def run_async_bot(u, p, i):
-                            new_loop = asyncio.new_event_loop()
-                            asyncio.set_event_loop(new_loop)
-                            bot = FreeFireBot(uid=u, password=p, index=i)
-                            new_loop.run_until_complete(bot.keep_online_forever())
-
-                        t = threading.Thread(target=run_async_bot, args=(uid, pwd, index), daemon=True)
-                        t.start()
-        except Exception as e:
-            console.print(f"[bold red]Account Loader Error: {e}[/bold red]")
-        time.sleep(3)
 
 def ResTarTinG():
     """স্ক্রিপ্টটি পুনরায় চালু করার ফাংশন"""
@@ -531,7 +535,7 @@ def ResTarTinG():
 def AuTo_ResTartinG():
     """প্রতি ১ ঘণ্টা পর পর রিস্টার্ট ট্রিগার করবে"""
     while True:
-        time.sleep(3600)  # ৩৬০০ সেকেন্ড = ১ ঘণ্টা
+        time.sleep(3600)
         console.print("[bold red]⚠️ Auto restarting process...[/bold red]")
         ResTarTinG()
         
@@ -557,6 +561,9 @@ class FreeFireBot:
         self.room_created = False
         self.room_members = set()
         self.room_members_names = {}
+        self.current_room_id = None
+        self.current_chat_code = None
+        self.room_pkt = None
         
         update_bot_info(self.uid, status="🔄 Initializing...", room_active=False)
 
@@ -565,6 +572,8 @@ class FreeFireBot:
         try:
             if share_type == "map":
                 share_json = '{"WorkshopCode":"#FREEFIRE9A66CBA9DB53EC19AACDE5C6BDE4E65AK026","type":"UGCMapShare"}'
+            else:
+                share_json = '{"type":"HUDShare"}'
             
             fields = {
                 1: 1, 
@@ -605,6 +614,7 @@ class FreeFireBot:
         try:
             tracking_key = f"{self.bot_uid}_{room_id}_{user_uid}"
             current_time = time.time()
+            # আগের কোড অনুযায়ী 0 সেকেন্ড - প্রতি বার ওয়েলকাম পাঠাবে
             if tracking_key in welcome_tracking:
                 if current_time - welcome_tracking[tracking_key] < 0:
                     return
@@ -678,7 +688,6 @@ class FreeFireBot:
         return members
 
     def get_room_mode(self):
-        # 6v6 বাদ — lw, 2v2 এবং 4v4 চলবে
         remainder = self.index % 3
 
         if remainder == 0:
@@ -688,12 +697,12 @@ class FreeFireBot:
         else:
             return Room4v4, "4v4"
 
-    # ---------- TCP ONLINE (ROOM UPDATE - CLEAN LOGGING) ----------
+    # ---------- TCP ONLINE ----------
     async def tcp_online(self, ip, port, auth_token):
         self.current_room_id = None 
         self.is_in_side2 = False 
         self.room_members = set()
-        self.current_chat_code = None # চ্যাট কোড সেভ রাখার জন্য
+        self.current_chat_code = None
         
         while self.is_running:
             try:
@@ -704,16 +713,14 @@ class FreeFireBot:
                 self.is_online = True
                 update_bot_info(self.uid, status="✅ Online", room_active=True)
                 
-                # --- এখানে পরিবর্তন করা হয়েছে ---
                 selected_color = get_random_color()
                 name_styles = ["ƬƠƦƖƘƲԼ", "TØR!KUL", "Ƭᴏʀɪᴋᴜʟ"]
                 selected_name = random.choice(name_styles)
                 
                 room_name = f"[B]{selected_color}{selected_name}"
-                # ------------------------------
 
                 room_func, mode_name = self.get_room_mode()
-                self.room_pkt = room_func(room_name, self.key, self.iv)
+                self.room_pkt = await room_func(room_name, self.key, self.iv)
                 
                 self.online_writer.write(self.room_pkt)
                 await self.online_writer.drain()
@@ -738,9 +745,7 @@ class FreeFireBot:
                                         room_info = f5.get('2', {}).get('data', {})
                                         r_id = room_info.get('1', {}).get('data')
                                         r_name = room_info.get('2', {}).get('data')
-                                        bot_acc_id = room_info.get('3', {}).get('data')
                                         
-                                        # চ্যাট কোড সংগ্রহ করে রাখা মেসেজ পাঠানোর জন্য
                                         self.current_chat_code = room_info.get('36', {}).get('data') or room_info.get('40', {}).get('data')
 
                                         if r_id and str(r_id) != str(self.current_room_id):
@@ -754,7 +759,7 @@ class FreeFireBot:
                                                 ))
                                                 update_bot_info(self.uid, last_room_id=str(r_id), room_active=True)
 
-                                    # --- ২. প্লেয়ার জয়েন (শুধু ওয়েলকাম মেসেজ যাবে, সাইড চেঞ্জ হবে না) ---
+                                    # --- ২. প্লেয়ার জয়েন ---
                                     user_info = f5.get('1', {}).get('data', {})
                                     if isinstance(user_info, dict):
                                         u_uid = user_info.get('2', {}).get('data')
@@ -765,20 +770,18 @@ class FreeFireBot:
                                             if uid_str not in self.room_members:
                                                 p_name = str(u_name) if u_name and not str(u_name).isdigit() else "Player"
                                                 
-                                                # ওয়েলকাম মেসেজ পাঠানো
                                                 if self.current_room_id and self.current_chat_code:
                                                     asyncio.create_task(self.Auto_Room_Welcome(self.current_room_id, self.current_chat_code, uid_str, user_name=p_name))
                                                 
                                                 self.room_members.add(uid_str)
                                                 console.print(f"[bold cyan][{self.uid}][/bold cyan] [bold green]➜ Player Joined:[/bold green] {p_name}")
 
-                                    # --- ৩. রুম ফুল ডিটেকশন (স্টার্ট না করে মেসেজ দিবে) ---
+                                    # --- ৩. রুম ফুল ডিটেকশন ---
                                     if cmd_type == 65:
                                         is_full = f5.get('1', {}).get('data')
                                         if is_full == 1 and self.current_room_id:
                                             console.print(f"[bold yellow]!!! ROOM FULL ({self.current_room_id}) !!! SENDING REJECTION MSG...[/bold yellow]")
                                             
-                                            # আপনার দেওয়া মেসেজ
                                             sorry_msg = (
                                                 "[C][FF0000]sorry এই room টি start হবে না\n"
                                                 "[C][FFFF00]আপনি দয়া করে [00FF00]➥Ƭᴏʀɪᴋᴜʟ [FFFF00]এই নামের\n"
@@ -786,24 +789,23 @@ class FreeFireBot:
                                                 "[C][00FFFF]সেইটি start হবে"
                                             )
                                             
-                                            # চ্যাট মেসেজ প্যাকেট পাঠানো
                                             if self.chat_writer and self.current_chat_code:
                                                 msg_pkt = await TORIKUL_SEnd_RoOm_MsG(self.current_room_id, sorry_msg, self.bot_uid, self.key, self.iv)
                                                 if msg_pkt:
                                                     self.chat_writer.write(msg_pkt)
                                                     await self.chat_writer.drain()
                                             
-                                            await asyncio.sleep(2.0) # মেসেজ পড়ার জন্য সময়
+                                            await asyncio.sleep(2.0)
                                             
-                                            # স্টার্ট না করে সরাসরি এক্সিট করা
                                             exit_pkt = await Mahir_Room_ExiT(self.bot_uid, self.key, self.iv)
                                             if exit_pkt:
                                                 self.online_writer.write(exit_pkt)
                                                 await self.online_writer.drain()
                                                 
-                                                # ডাটা রিসেট ও নতুন রুম তৈরি
                                                 self.room_members.clear()
                                                 await asyncio.sleep(0.5)
+                                                room_func, mode_name = self.get_room_mode()
+                                                self.room_pkt = await room_func(room_name, self.key, self.iv)
                                                 self.online_writer.write(self.room_pkt)
                                                 await self.online_writer.drain()
                                                 console.print(f"[bold cyan][{self.uid}][/bold cyan] [bold green]New Room Created.[/bold green]")
@@ -819,9 +821,10 @@ class FreeFireBot:
                         
             except Exception: 
                 self.is_online = False
+                update_bot_info(self.uid, status="🔄 Reconnecting...", room_active=False)
             await asyncio.sleep(10)
 
-    # ---------- TCP CHAT (COMMAND HANDLING) ----------
+    # ---------- TCP CHAT ----------
     async def tcp_chat(self, ip, port, auth_token, key, iv, ready_event):
         while self.is_running:
             try:
@@ -850,30 +853,25 @@ class FreeFireBot:
                                     if str(sender_uid) == str(self.bot_uid):
                                         continue
                                     
-                                    # --- 'st' কমান্ড: স্টার্ট -> ১ সেকেন্ড ওয়েট -> এক্সিট -> রিক্রিয়েট ---
+                                    # --- 'st' কমান্ড ---
                                     if msg_text == "st":
                                         if self.current_room_id and self.online_writer:
-                                            # ১. ম্যাচ স্টার্ট প্যাকেট পাঠানো
                                             st_pkt = await Mahir_Room_START(self.current_room_id, self.key, self.iv)
                                             if st_pkt:
                                                 self.online_writer.write(st_pkt)
                                                 await self.online_writer.drain()
                                                 
-                                                # ২. ১ সেকেন্ড অপেক্ষা
                                                 await asyncio.sleep(1.0)
                                                 
-                                                # ৩. রুম থেকে এক্সিট প্যাকেট পাঠানো
                                                 ex_pkt = await Mahir_Room_ExiT(self.bot_uid, self.key, self.iv)
                                                 if ex_pkt:
                                                     self.online_writer.write(ex_pkt)
                                                     await self.online_writer.drain()
                                                     
-                                                    # ৪. ডাটা রিসেট ও নতুন রুম তৈরি (Recreate)
                                                     self.room_members.clear()
                                                     self.is_in_side2 = False
                                                     await asyncio.sleep(0.5)
                                                     
-                                                    # tcp_online থেকে সেভ করা প্যাকেটটি পুনরায় পাঠানো
                                                     if hasattr(self, 'room_pkt') and self.room_pkt:
                                                         self.online_writer.write(self.room_pkt)
                                                         await self.online_writer.drain()
@@ -1765,7 +1763,6 @@ def start_web_server():
     try:
         server = HTTPServer(('0.0.0.0', port), BotHandler)
         console.print(f"[bold green]🌐 Web Dashboard running at: http://localhost:{port}[/bold green]")
-        # অটোমেটিক ব্রাউজার ওপেন হবে
         webbrowser.open(f'http://localhost:{port}')
         server.serve_forever()
     except OSError:
@@ -1775,21 +1772,18 @@ def start_web_server():
 async def main_async():
     print(render('TORIKUL', colors=['white', 'red'], align='center'))
     
-    # অটো-রিস্টার্ট থ্রেড
     threading.Thread(target=AuTo_ResTartinG, daemon=True).start()
 
-    # ওয়েব সার্ভার
     web_thread = threading.Thread(target=start_web_server, daemon=True)
     web_thread.start()
     await asyncio.sleep(1)
 
-    # একবারে ৫০টি করে আইডি লোড করার টাস্ক
     asyncio.create_task(batch_account_loader())
     
     console.print(Panel(
         "[bold green]✅ System Active & Running[/bold green]\n"
         "[cyan]🌐 Dashboard: http://localhost:8080[/cyan]\n"
-        "[yellow]🔄 Batch Mode: 50 Accounts Simultaneously[/yellow]",
+        "[yellow]🔄 Batch Mode: 100 Accounts Simultaneously[/yellow]",
         title="[bold red]🔥 TORIKUL BOT SYSTEM 🔥[/bold red]",
         border_style="bright_red",
         expand=False
